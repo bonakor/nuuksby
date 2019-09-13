@@ -1,16 +1,37 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Nuük`,
+    description: `Le studio qui monteeeee.`,
+    author: `@bonakor`,
+    boUrl: 'https://gatsby.nuuk.fr'
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-source-graphql`,
+      options: {
+        // This type will contain remote schema Query type
+        typeName: `WPGraphQL`,
+        // This is field under which it's accessible
+        fieldName: `wpgraphql`,
+        // Url to query from
+        url: `https://gatsby.nuuk.fr/graphql`,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: 'gatsby-wpgraphql-inline-images',
+      options: {
+        wordPressUrl: 'https://gatsby.nuuk.fr/',
+        uploadsUrl: 'https://gatsby.nuuk.fr/wp-content/uploads/',
+        processPostTypes: ['Page', 'Post'],
+        graphqlTypeName: 'WPGraphQL',
       },
     },
     `gatsby-transformer-sharp`,

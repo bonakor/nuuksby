@@ -1,0 +1,32 @@
+import React from "react"
+import { graphql } from "gatsby"
+
+export const homeQuery = graphql`
+  {
+    wpgraphql {
+      pageBy(uri: "sample-page") {
+        title
+        homeFields {
+          adresse
+        }
+        featuredImage {
+          sourceUrl
+        }
+      }
+    }
+  }
+`
+
+const Home = ({ data }) => {
+  const elements = data.wpgraphql.pageBy
+
+  return (
+    <div>
+      <h1>{elements.title}</h1>
+      {elements.homeFields.adresse}
+      <img src={elements.featuredImage.sourceUrl} />
+    </div>
+  )
+}
+
+export default Home
