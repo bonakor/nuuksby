@@ -25,15 +25,6 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    {
-      resolve: 'gatsby-wpgraphql-inline-images',
-      options: {
-        wordPressUrl: 'https://gatsby.nuuk.fr/',
-        uploadsUrl: 'https://gatsby.nuuk.fr/wp-content/uploads/',
-        processPostTypes: ['Page', 'Post'],
-        graphqlTypeName: 'WPGraphQL',
-      },
-    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -48,6 +39,7 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    `gatsby-plugin-postcss`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

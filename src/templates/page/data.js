@@ -5,7 +5,7 @@ const PageTemplateFragment = `
       title
       content
       featuredImage {
-        sourceUrl
+        sourceUrl        
       }
       pageFields {
       adresse
